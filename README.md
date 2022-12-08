@@ -30,10 +30,14 @@ The scripts and code to build atomic polyhedra chains and calculate pair radial 
     
 ## Example
 
+Create chain of 3 segments of BaO6 octavedra. 
+
 ```python
 from gen_AOn_chain import gen_polyhedra_chain
 
-atoms = gen_polyhedra_chain(n_verteces=6, R=2.75, phi1=30, theta=120, phi2=30, A='Ba')
+atoms = gen_polyhedra_chain(n_verteces=6, n_segments=3,
+                            R=2.75, phi1=30, theta=120, 
+                            phi2=30, A='Ba')
 
 print(atoms)
 ```
