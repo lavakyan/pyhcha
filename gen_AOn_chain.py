@@ -99,8 +99,8 @@ def gen_polyhedra_chain(n_verteces=4, n_segments=3, R=2.75, phi1=45, theta=122, 
 
 if __name__ == '__main__':
 
-    atoms = gen_polyhedra_chain(n=3, R=2.75, phi1=30, theta=120, phi2=30, A='Ba')
-
+    atoms = gen_polyhedra_chain(n_verteces=6, R=2.75, phi1=30, theta=120, phi2=30, A='Ba')
+    print(atoms)
     from ase.visualize import view
     view(atoms)
 
