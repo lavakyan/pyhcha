@@ -42,5 +42,11 @@ Output:
 
 Atoms(symbols='BaO6BaO5BaO5', pbc=False)
 
-
 ![doc image](doc/image.png)
+
+
+## Acknowledgments
+
+The work was financially supported by a Russian Science Foundation,
+grant # 22-12-00106.
+
