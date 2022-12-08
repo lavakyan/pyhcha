@@ -4,6 +4,12 @@ Atomic Polyhedra Chains
 
 The scripts and code to build atomic polyhedra chains and calculate pair radial distribution functions (PDF, RDF, etc) for them.
 
+- Atomic Simulation Environment (ASE) <https://wiki.fysik.dtu.dk/ase/> is inheritely used. 
+
+	A.H. Larsen, J.J. Mortensen, J. Blomqvist, I.E. Castelli, R. Christensen, M. Dułak, J. Friis, M.N. Groves, B. Hammer, C. Hargus, E.D. Hermes, P.C. Jennings, P.B. Jensen, J. Kermode, J.R. Kitchin, E.L. Kolsbjerg, J. Kubal, K. Kaasbjerg, S. Lysgaard, J.B. Maronsson, T. Maxson, T. Olsen, L. Pastewka, A. Peterson, C. Rostgaard, J. Schiøtz, O. Schütt, M. Strange, K.S. Thygesen, T. Vegge, L. Vilhelmsen, M. Walter, Z. Zeng, K.W. Jacobsen
+	The atomic simulation environment - a Python library for working with atoms
+	J. Phys.: Condens. Matter, 2017, 29, 273002 
+
 - Polyhedra data are from:
 
     Arrangement of n points on a sphere in 3 dimensions
@@ -19,6 +25,7 @@ The scripts and code to build atomic polyhedra chains and calculate pair radial 
     J. Bloch, Th. Proffen and S. J. L. Billinge, PDFfit2 and
     PDFgui: computer programs for studying nanostructure in
     crystals, J. Phys.: Condens.  Matter 19, 335219 (2007)
+    
     
     
 ## Example
@@ -37,4 +44,3 @@ Atoms(symbols='BaO6BaO5BaO5', pbc=False)
 
 
 ![doc image](doc/image.png)
-
