@@ -19,7 +19,7 @@ The scripts and code to build atomic polyhedra chains and calculate pair radial 
 
 
 
-- PDF calculation code is adapted from C++ code of PDFgui <https://github.com/diffpy/diffpy.pdfgui.git> (file  diffpy.pdffit2/libpdffit2/pdf.cc)
+- PDF calculation code is adapted from C++ code of PDFgui <https://github.com/diffpy/diffpy.pdffit2> (file  diffpy.pdffit2/libpdffit2/pdf.cc)
 
     C. L. Farrow, P. Juhas, J. W. Liu, D. Bryndin, E. S. Bozin,
     J. Bloch, Th. Proffen and S. J. L. Billinge, PDFfit2 and
