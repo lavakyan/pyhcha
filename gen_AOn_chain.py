@@ -54,8 +54,8 @@ def get_polyhedron_atoms(n_verteces=4, R=2.75, A='Ba', O='O'):
     return atoms
 
 
-def _add_bridged_polyhedron(atoms, n_verteces=4, R=2.75, phi1=45,
-                            theta=122, phi2=0, A='Ba'):
+def _add_bridged_polyhedron(atoms, n_verteces=4, R=2.75, phi=45,
+                            theta=122, roll=0, A='Ba'):
     '''
     add segment to a chain of polyhedra
     '''
@@ -65,24 +65,24 @@ def _add_bridged_polyhedron(atoms, n_verteces=4, R=2.75, phi1=45,
     fragment = get_polyhedron_atoms(n_verteces=n_verteces, R=R, A=A)
     fragment = _orient_to_z(fragment)
 
-    fragment.pop(np.argmax(fragment.positions[:, 2]))  # remove top O
-    fragment.rotate(180, [1, 0, 0])  # flip O vacancy down
-    fragment.translate(pos_C - fragment.positions[0, :])  # 0th is nonO
+    fragment.pop(np.argmax(fragment.positions[:,2]))  # remove top O
+    fragment.rotate(180, [1,0,0])  # flip O vacancy down
+    fragment.translate(pos_C-fragment.positions[0,:])  # 0th is nonO central atom
     fragment.translate([0, 0, R])
-    fragment.rotate(phi1, [0, 0, 1], center=pos_C)
-    fragment.rotate(180-theta, [1, 0, 0], center=pos_C)
+    fragment.rotate(180-theta, [1,0,0], center=pos_C)  # pitch
+    fragment.rotate(phi, [0,1,0], center=pos_C)  # yaw
     fragment.translate([0, 0, R])
-    pos_Cnext = fragment.positions[0, :]
+    pos_Cnext = fragment.positions[0,:]
     d = pos_Cnext - pos_bridge
-    fragment.rotate(phi2-phi1, d, center=pos_Cnext)
-    pos_Cnext = fragment.positions[0, :]
+    fragment.rotate(roll, d, center=pos_Cnext)  # roll
+    pos_Cnext = fragment.positions[0,:]
     atoms.extend(fragment)
     atoms = _orient_to_z(atoms, pos_Cnext, pos_bridge)
     return atoms
 
 
-def gen_polyhedra_chain(n_verteces=4, n_segments=3, R=2.75, phi1=45,
-                        theta=122, phi2=0, A='Ba'):
+def gen_polyhedra_chain(n_verteces=4, n_segments=3, R=2.75, phi=45,
+                        theta=122, roll=0, A='Ba'):
     '''
     Parameters:
 
@@ -107,15 +107,15 @@ def gen_polyhedra_chain(n_verteces=4, n_segments=3, R=2.75, phi1=45,
         # print('next segment')
         atoms = _add_bridged_polyhedron(atoms=atoms,
                                         n_verteces=n_verteces,
-                                        R=R, phi1=phi1,
-                                        theta=theta, phi2=phi2, A=A)
+                                        R=R, phi=phi,
+                                        theta=theta, roll=roll, A=A)
     return atoms
 
 
 if __name__ == '__main__':
 
     atoms = gen_polyhedra_chain(n_verteces=6, n_segments=4,
-                                R=2.75, phi1=0, theta=120, phi2=0,
+                                R=2.75, phi=45, theta=120, roll=10,
                                 A='Ba')
 
     from ase.visualize import view
