@@ -54,3 +54,9 @@ Atoms(symbols='BaO6BaO5BaO5', pbc=False)
 The work was financially supported by a Russian Science Foundation,
 grant # 22-12-00106.
 
+## Cite
+
+If the code is used in academic publications please cite the following article:
+
+Glass and Ceramics, **2023**, *80*, 85-90 doi: [10.1007/s10717-023-00562-0](https://dx.doi.org/10.1007/s10717-023-00562-0)
+
